@@ -3,7 +3,7 @@
 #
 
 # Ajoutez une source à l'exécutable de ce projet.
-add_executable (MedevProject "MedevProject.cpp" "MedevProject.h")
+add_executable (MedevProject "MedevProject.cpp" "MedevProject.h" "Cell.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET MedevProject PROPERTY CXX_STANDARD 20)

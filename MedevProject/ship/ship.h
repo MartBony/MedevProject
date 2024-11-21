@@ -10,6 +10,11 @@ class Ship{
     string type;
     public:
 
+        Ship(const vector<Cell*> &position, const string &type){
+            this->setPosition(position);
+            this->setType(type);
+        }
+
         // Getters and setters
         vector<Cell*> getPosition() const {return this->position;};
         void setPosition(const vector<Cell*> &position) {this->position = position;};

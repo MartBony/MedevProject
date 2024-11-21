@@ -1,5 +1,5 @@
 #pragma once 
-#include "Ship.h" 
+#include "ship/ship.h" 
 
 using namespace std;
 

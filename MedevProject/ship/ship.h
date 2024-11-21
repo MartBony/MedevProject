@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "../cell.h"
+#include "../Cell.h"
 #include <string>
 
 using namespace std;

@@ -17,7 +17,7 @@ string Ship::getType() const { return this->type; };
 void Ship::setType(const string& type) { this->type = type; };
 
 bool Ship::isAlive(){
-    if(alive){
+    if(this->alive){
         for(Cell* cell : this->position){
             if(cell->getState() == cell->notHitState) return true;
         }

@@ -66,6 +66,7 @@ void Grid::attack(const int x, const int y) {
 	Cell* targetCell = this->cells[x][y];
 	if(targetCell->getOccupant()){
 		targetCell->setState(targetCell->touchedHitState);
+		(targetCell->getOccupant())->isAlive();
 	} else {
 		targetCell->setState(targetCell->missedHitState);
 	}

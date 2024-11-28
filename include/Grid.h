@@ -12,7 +12,7 @@ private:
 	bool hidden;
 
 public:
-	Grid();
+	Grid(const bool& hidden);
 
 	void display() const;
 	void attack(const int x, const int y);

@@ -1,6 +1,7 @@
 #include "Grid.h"
-
+#include <iostream>
 using namespace std;
+
 Grid::Grid(const bool& hidden) : hidden(hidden) {
 	for (int x = 0; x <= 9; x++) {
 		vector<Cell*> row = {};
@@ -12,14 +13,19 @@ Grid::Grid(const bool& hidden) : hidden(hidden) {
 	}
 }
 
-void Grid::display() const{
-	for (auto& row : this->cells) {
+void Grid::display() const {
+	cout << "  1 2 3 4 5 6 7 8 9 10" << endl;
+	vector<char> letters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
+	//for (auto& row : this->cells) {
+	for (int i = 0; i < cells.size(); i++) {
+		cout << letters[i];
 		cout << "|";
+		vector<Cell*> row = this->cells[i];
 		for (auto& cell : row) {
 			if (this->hidden) {
 				switch (cell->getState()) {
 				case 'N':
-					cout << '~';
+					cout << "~ ";
 					break;
 				case 'M':
 					cout << 'O';
@@ -38,7 +44,7 @@ void Grid::display() const{
 						cout << 'O';
 					}
 					else { //Pas attaquée
-						cout << '~';
+						cout << "~ ";
 					}
 				}
 				else { //Case avec bateau

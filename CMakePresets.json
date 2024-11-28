@@ -74,8 +74,8 @@
             }
         },
         {
-            "name": "default-martin",
-            "displayName": "Default",
+            "name": "martin",
+            "displayName": "Martin VS Code",
             "inherits": "martin-base",
             "architecture": {
                 "value": "x64",
@@ -88,11 +88,11 @@
     ],
     "buildPresets": [
         {
-            "name": "default-martin",
-            "displayName": "Default Build",
+            "name": "martin",
+            "displayName": "Martin VS Code",
             "targets": ["MedevProject"],
             "verbose": true,
-            "configurePreset": "default-martin"
+            "configurePreset": "martin"
         }
     ]
 }

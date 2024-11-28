@@ -34,18 +34,18 @@ void Grid::display() const{
 			}
 			else {
 				if (cell->getOccupant() == nullptr) { //Case sans bateau
-					if (cell->getState() == 'M') { //Attaquée mais ratée
+					if (cell->getState() == 'M') { //Attaquï¿½e mais ratï¿½e
 						cout << 'O';
 					}
-					else { //Pas attaquée
+					else { //Pas attaquï¿½e
 						cout << '~';
 					}
 				}
 				else { //Case avec bateau
-					if (cell->getState() == 'T') { //Attaquée et touchée
+					if (cell->getState() == 'T') { //Attaquï¿½e et touchï¿½e
 						cout << 'X';
 					}
-					else { //Pas attaquée
+					else { //Pas attaquï¿½e
 						cout << 'B';
 					}
 				}
@@ -56,5 +56,12 @@ void Grid::display() const{
 }
 
 void Grid::attack(const int x, const int y) {
+	/* When an adversary attacks this grid. */
+	Cell* targetCell = this->cells[x][y];
+	if(targetCell->getOccupant()){
+		targetCell->setState(targetCell->touchedHitState);
+	} else {
+		targetCell->setState(targetCell->missedHitState);
+	}
 
 }

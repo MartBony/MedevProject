@@ -3,6 +3,8 @@
 #include <vector>
 #include <string>
 
+#include "Cell.h"
+
 using namespace std;
 
 class Cell;
@@ -10,6 +12,7 @@ class Cell;
 class Ship{
     vector<Cell*> position;
     string type;
+    bool alive = true;
     public:
         
         Ship(const vector<Cell*>& position, const string& type);
@@ -21,5 +24,7 @@ class Ship{
 
         string getType() const;
         void setType(const string &type);
+
+        bool isAlive();
 
 };

@@ -10,7 +10,7 @@ private :
 	int x; 
 	int y; 
 	Ship* occupant;
-	char state = 'N'; //N for notHit or M for missedHit or T for touchedHit
+	char state = 'N'; //N for notHit or M for missedHit or T for touchedHit X for deadShip
 	
 
 
@@ -19,6 +19,7 @@ public :
 	const char notHitState = 'N';
 	const char missedHitState = 'M';
 	const char touchedHitState = 'T';
+	const char deadShipState = 'X';
 
 	//constructor 
 	Cell(int x, int y);

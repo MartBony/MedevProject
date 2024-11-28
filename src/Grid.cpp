@@ -14,12 +14,12 @@ Grid::Grid(const bool& hidden) : hidden(hidden) {
 }
 
 void Grid::display() const {
-	cout << "  1 2 3 4 5 6 7 8 9 10" << endl;
+	cout << "   1 2 3 4 5 6 7 8 9 10" << endl;
 	vector<char> letters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
 	//for (auto& row : this->cells) {
 	for (int i = 0; i < cells.size(); i++) {
 		cout << letters[i];
-		cout << "|";
+		cout << "| ";
 		vector<Cell*> row = this->cells[i];
 		for (auto& cell : row) {
 			if (this->hidden) {
@@ -28,31 +28,39 @@ void Grid::display() const {
 					cout << "~ ";
 					break;
 				case 'M':
-					cout << 'O';
+					cout << 'O ';
 					break;
 				case 'T':
-					cout << 'X';
+					cout << 'T ';
+					break;
+				case 'X':
+					cout << 'X ';
 					break;
 				default:
-					cout << '?';
+					cout << '? ';
 					break;
 				}
 			}
 			else {
 				if (cell->getOccupant() == nullptr) { //Case sans bateau
 					if (cell->getState() == 'M') { //Attaqu�e mais rat�e
-						cout << 'O';
+						cout << 'O ';
 					}
 					else { //Pas attaqu�e
 						cout << "~ ";
 					}
 				}
 				else { //Case avec bateau
-					if (cell->getState() == 'T') { //Attaqu�e et touch�e
-						cout << 'X';
-					}
-					else { //Pas attaqu�e
-						cout << 'B';
+					switch (cell->getState()) {
+					case 'T': //Attaqu�e et touch�e
+						cout << 'T ';
+						break;
+					case 'X' :
+						cout << 'X ';
+						break;
+					default : //Pas attaqu�e
+						cout << 'B ';
+						break;
 					}
 				}
 			}

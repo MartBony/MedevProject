@@ -22,6 +22,9 @@ bool Ship::isAlive(){
             if(cell->getState() == cell->notHitState) return true;
         }
         this->alive = false;
+        for (Cell* cell : this->position) {
+            cell->setState('X');
+        }
         return false;
     } else return false;
 }

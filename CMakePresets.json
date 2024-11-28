@@ -74,7 +74,7 @@
             }
         },
         {
-            "name": "default (martin)",
+            "name": "default-martin",
             "displayName": "Default",
             "inherits": "martin-base",
             "architecture": {
@@ -88,11 +88,11 @@
     ],
     "buildPresets": [
         {
-            "name": "default (martin)",
+            "name": "default-martin",
             "displayName": "Default Build",
-            "targets": ["Frappologie"],
+            "targets": ["MedevProject"],
             "verbose": true,
-            "configurePreset": "default (martin)"
+            "configurePreset": "default-martin"
         }
     ]
 }

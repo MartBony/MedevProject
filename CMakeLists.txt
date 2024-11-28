@@ -2,20 +2,20 @@
 
 project ( MedevProject )
 
-set(SRCS
-	src/MedevProject.cpp
-	src/Cell.cpp
-	src/Grid.cpp
-	src/Ship.cpp
+file(GLOB_RECURSE
+	SRCS
+	src/*
 )
-	
-set(HEADERS
-	include/Cell.h
-	include/Grid.h
-	include/Ship.h
-	)
 
-add_executable( MedevProject ${SRCS} ${HEADERS} )
+# set(SRCS
+#	src/MedevProject.cpp
+#	src/Cell.cpp
+#	src/Grid.cpp
+#	src/Ship.cpp
+#)
+	
+
+add_executable( MedevProject ${SRCS})
 
 include_directories( include )
 

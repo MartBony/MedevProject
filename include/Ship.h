@@ -1,25 +1,25 @@
 #pragma once
+
 #include <vector>
-#include "../Cell.h"
 #include <string>
 
 using namespace std;
+
+class Cell;
 
 class Ship{
     vector<Cell*> position;
     string type;
     public:
-
-        Ship(const vector<Cell*> &position, const string &type){
-            this->setPosition(position);
-            this->setType(type);
-        }
+        
+        Ship(const vector<Cell*>& position, const string& type);
+        
 
         // Getters and setters
-        vector<Cell*> getPosition() const {return this->position;};
-        void setPosition(const vector<Cell*> &position) {this->position = position;};
+        vector<Cell*> getPosition() const;
+        void setPosition(const vector<Cell*> &position);
 
-        string getType() const {return this->type;};
-        void setType(const string &type){this->type = type;};
+        string getType() const;
+        void setType(const string &type);
 
 };

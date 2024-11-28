@@ -1,7 +1,8 @@
 #pragma once 
-#include "ship/ship.h" 
 
 using namespace std;
+
+class Ship;
 
 class Cell {
 private : 
@@ -12,15 +13,15 @@ private :
 
 public : 
 	//constructor 
-	Cell(int x, int y) : x(x), y(y), occupant(nullptr), state('N') {};
+	Cell(int x, int y);
 
 	//getters and setters 
-	int getX() const { return this->x; }
-	int getY() const { return this->y; }
-	Ship* getOccupant() const { return this->occupant; }
-	char getState() const { return this->state; }
-	void setX(const int& x) { this->x = x; }
-	void setY(const int& y) { this->y = y; }
-	void setOccupant(Ship* occupant) { this->occupant = occupant;}
-	void setState(const char& state) { this->state = state; }
+	int getX() const;
+	int getY() const;
+	Ship* getOccupant() const;
+	char getState() const;
+	void setX(const int& x);
+	void setY(const int& y);
+	void setOccupant(Ship* occupant);
+	void setState(const char& state);
 };

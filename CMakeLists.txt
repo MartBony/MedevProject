@@ -3,14 +3,16 @@
 project ( MedevProject )
 
 set(SRCS
-	MedevProject.cpp
-	Grid.cpp
-	)
+	src/MedevProject.cpp
+	src/Cell.cpp
+	src/Grid.cpp
+	src/Ship.cpp
+)
 	
 set(HEADERS
-	Cell.h
-	Grid.h
-	Ship.h
+	include/Cell.h
+	include/Grid.h
+	include/Ship.h
 	)
 
 add_executable( MedevProject ${SRCS} ${HEADERS} )

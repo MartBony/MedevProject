@@ -1,8 +1,6 @@
 ﻿// MedevProject.cpp : définit le point d'entrée de l'application.
 //
-
-#include "MedevProject.h"
-
+#include <iostream>
 using namespace std;
 
 int main()

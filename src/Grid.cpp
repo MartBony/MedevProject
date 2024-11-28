@@ -1,7 +1,7 @@
 #include "Grid.h"
 
 using namespace std;
-Grid::Grid() {
+Grid::Grid(const bool& hidden) : hidden(hidden) {
 	for (int x = 0; x <= 9; x++) {
 		vector<Cell*> row = {};
 		for (int y = 0; y <= 9; y++) {

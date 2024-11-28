@@ -3,7 +3,7 @@
 project ( MedevProject )
 
 set(SRCS
-	Medevproject.cpp
+	MedevProject.cpp
 	Grid.cpp
 	)
 	

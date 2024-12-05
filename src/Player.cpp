@@ -20,7 +20,7 @@ void Player::initShips() {
 		size_t NbOfShips = shipType.at(0);
 		size_t shipLength = shipType.at(1);
 		string shipName{};
-		switch (shipLength) { //attribution
+		switch (shipLength) { //attribution of the name of the ship depending on their length
 		case 5:
 			shipName = "battleship";
 			break;
@@ -38,14 +38,14 @@ void Player::initShips() {
 			break;
 		}
 
-		for (size_t shipIndex = 0; shipIndex < NbOfShips; shipIndex++) {
+		for (size_t shipIndex = 0; shipIndex < NbOfShips; shipIndex++) { //we iterate on the number of ships of a given type
 			vector<Cell*> position{};
 
-			for (size_t cellIndex = 0; cellIndex < shipLength; cellIndex++) {
+			for (size_t cellIndex = 0; cellIndex < shipLength; cellIndex++) { //we iterate on the number of cells in a ship of that type
 
-				this->shipGrid.display()
+				this->shipGrid.display() //we display the shipGrid
 
-					cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
+				cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
 				string coord{};
 				cin >> coord;
 				vector<int> IntCoord = toIntCoord(coord);

@@ -53,14 +53,14 @@ void Player::initShips() {
 				int y = IntCoord.at(1);
 
 
-				if (this->shipGrid.at(x).at(y).getOccupant() == nullptr) {
-					position.push_back(shipGrid.at(x).at(y));
+				if (this->shipGrid.cells[x][y]->getOccupant() == nullptr) {
+					position.push_back(shipGrid.cells[x][y]);
 				}
 			}
 
 			Ship newShip(position, shipName);
 			for (Cell* ptrC : position) {
-				ptrC->setOccupant(newShip);
+				ptrC->setOccupant(&newShip);
 			}
 			this->shipList.push_back(&newShip);
 		}

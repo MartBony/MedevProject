@@ -1,0 +1,127 @@
+\doxysection{Player.\+cpp}
+\hypertarget{_player_8cpp_source}{}\label{_player_8cpp_source}\index{src/Player.cpp@{src/Player.cpp}}
+\mbox{\hyperlink{_player_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}Player.h"{}}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00003}00003\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00006}00006\ vector<int>\ Player::toIntCoord(\textcolor{keywordtype}{string}\ coord)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00007}00007\ \ \ \ \ vector<int>\ IntCoord;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(coord.at(0))\ -\/\ 65;\ \textcolor{comment}{//Le\ code\ ASCII\ du\ A\ est\ 65,\ celui\ de\ B\ est\ 66,\ etc.}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ coord.at(1)-\/1;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00010}00010\ \ \ \ \ IntCoord.push\_back(x);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00011}00011\ \ \ \ \ IntCoord.push\_back(y);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00014}00014\ \textcolor{keywordtype}{void}\ Player::initShips()\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00016}00016\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Place\ your\ ships\ by\ entering\ the\ coordinates\ occupied\ by\ each\ one\ :\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00017}00017\ \ \ \ \ vector<vector<int>>\ fleet\{\ \{1,5\},\{1,4\},\{1,3\},\{2,2\},\{2,1\}\ \};\ \textcolor{comment}{//vect<vect<\ number\ of\ ships\ of\ that\ length,\ length\ of\ a\ ship\ >>}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{for}\ (vector<int>\ shipType\ :\ fleet)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ NbOfShips\ =\ shipType.at(0);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ shipLength\ =\ shipType.at(1);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ shipName\{\};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (shipLength)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shipName\ =\ \textcolor{stringliteral}{"{}battleship"{}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shipName\ =\ \textcolor{stringliteral}{"{}cruiser"{}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shipName\ =\ \textcolor{stringliteral}{"{}destroyer"{}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shipName\ =\ \textcolor{stringliteral}{"{}submarine"{}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shipName\ =\ \textcolor{stringliteral}{"{}fishing\ boat"{}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ shipIndex\ =\ 0;\ shipIndex\ <\ NbOfShips;\ shipIndex++)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ vector<Cell*>\ position\{\};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ cellIndex\ =\ 0;\ cellIndex\ <\ shipLength;\ cellIndex++)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>shipGrid.display()}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ coordinates\ for\ the\ "{}}\ <<\ shipName\ <<\ \textcolor{stringliteral}{"{}\ number\ "{}}\ <<\ shipIndex\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ shipLength\ -\/\ cellIndex\ <<\ \textcolor{stringliteral}{"{}\ cell(s)\ remaining)\ :\ "{}};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ coord\{\};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ coord;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vector<int>\ IntCoord\ =\ toIntCoord(coord);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ IntCoord.at(0);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y\ =\ IntCoord.at(1);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>shipGrid.at(x).at(y).getOccupant()\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.push\_back(shipGrid.at(x).at(y));}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ Ship\ newShip(position,\ shipName);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Cell*\ ptrC\ :\ position)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ptrC-\/>setOccupant(newShip);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>shipList.push\_back(\&newShip);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00068}00068\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00070}00070\ Player*\ Player::playTurn(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ row\ =\ \textcolor{charliteral}{'\_'},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ col\ =\ \textcolor{charliteral}{'\_'})\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//Asking\ confirmation\ from\ the\ player\ to\ start\ his\ turn}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00072}00072\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}It's\ "{}}\ <<\ this-\/>name\ <<\ \textcolor{stringliteral}{"{}'s\ turn.\ Press\ Enter\ to\ start\ your\ turn."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00073}00073\ \ \ \ \ cin;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//Display\ the\ player's\ grid\ and\ the\ opponent's\ last\ attack}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00076}00076\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}This\ is\ your\ grid."{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ !=\ \textcolor{charliteral}{'\_'})\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Your\ opponent\ attacked\ "{}}\ <<\ row\ <<\ col\ <<\ \textcolor{stringliteral}{"{}\ on\ his\ last\ turn"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00080}00080\ \ \ \ \ this-\/>shipGrid.display();}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//Display\ the\ player's\ attack\ grid}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00083}00083\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}This\ is\ the\ grid\ of\ your\ previous\ attacks:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00084}00084\ \ \ \ \ this-\/>attackGrid.display();}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//\ Ask\ the\ player\ for\ a\ cell\ to\ attack}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00087}00087\ \ \ \ \ map<char,\ int>\ rowMap\ =\ \{\ \{\textcolor{charliteral}{'A'},\ 0\},\ \{\textcolor{charliteral}{'B'},\ 1\},\ \{\textcolor{charliteral}{'C'},\ 2\},\ \{\textcolor{charliteral}{'D'},\ 3\},\ \{\textcolor{charliteral}{'E'},\ 4\},\ \{\textcolor{charliteral}{'F'},\ 5\},\ \{\textcolor{charliteral}{'G'},\ 6\},\ \{\textcolor{charliteral}{'H'},\ 7\},\ \{\textcolor{charliteral}{'I'},\ 8\},\ \{\textcolor{charliteral}{'J'},\ 9\}\};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{char}\ attackRow\ =\ \textcolor{charliteral}{'\_'};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{int}\ attackCol\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{while}\ (!rowMap.count(attackRow))\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ row\ to\ attack\ (Letter\ between\ A\ and\ J)"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ cin\ >>\ attackRow;\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{while}\ (attackCol\ <\ 1\ ||\ attackCol\ >\ 10)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Enter\ a\ column\ to\ attack\ (Integer\ between\ 1\ and\ 10)"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ cin\ >>\ attackCol;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00098}00098\ \ \ \ \ attackCol-\/-\/;}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//Update\ the\ grids}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00101}00101\ \ \ \ \ this-\/>attackGrid.attack(rowMap[attackRow],\ attackCol);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00102}00102\ \ \ \ \ this-\/>opponent-\/>shipGrid.attack(rowMap[attackRow],\ attackCol);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (!opponent-\/>hasLost())\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Start\ other\ player's\ turn}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>opponent-\/>playTurn(attackRow,\ (\textcolor{keywordtype}{char})attackCol);}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Return\ the\ winner\ of\ the\ game}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00114}00114\ \textcolor{keywordtype}{bool}\ Player::hasLost()\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ ship\ :\ shipList)\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ship-\/>isAlive())\ \{}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00119}00119\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{\Hypertarget{_player_8cpp_source_l00121}00121\ \}}
+
+\end{DoxyCode}

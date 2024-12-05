@@ -17,9 +17,6 @@ class Player {
 	Grid attackGrid;
 	vector<Ship*> shipList;
 
-public:
-
-	void initShips();
 private:
 	string name;
 	Grid shipGrid;

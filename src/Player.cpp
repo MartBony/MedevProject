@@ -110,3 +110,11 @@ Player* Player::playTurn(const char& row = '_', const char& col = '_') {
 	}
 }
 
+bool Player::hasLost() {
+	for (auto& ship : shipList) {
+		if (ship->getAlive()) {
+			return false; 
+		}
+	}
+	return true; 
+}

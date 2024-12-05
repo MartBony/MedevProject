@@ -1,7 +1,8 @@
 ﻿// MedevProject.cpp : définit le point d'entrée de l'application.
 //
 #include <iostream>
-#include "Grid.h"
+
+#include "Player.h"
 using namespace std;
 
 int main()
@@ -14,9 +15,9 @@ int main()
 	player1->initShips();
 	player2->initShips();
 
-	Player* winner = player1.playTurn();
+	Player* winner = player1->playTurn();
 
-
+	cout << "Player " << winner->name << " has won!" << endl;
 
 	delete player1;
 	delete player2;

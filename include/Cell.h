@@ -5,12 +5,23 @@ using namespace std;
 
 class Ship;
 
+/**
+ * @class Cell
+ * @brief Class representing a cell from the grid.
+ * 
+ * A cell contains a subpart of a ship and has a state depending on the player's action.
+ */
 class Cell {
 private : 
 	int x; 
 	int y; 
 	Ship* occupant;
-	char state = 'N'; //N for notHit or M for missedHit or T for touchedHit X for deadShip
+	/**
+	 * @brief State of the cell
+	 * 
+	 * N for notHit or M for missedHit or T for touchedHit X for deadShip.
+	 */
+	char state = 'N';
 	
 
 

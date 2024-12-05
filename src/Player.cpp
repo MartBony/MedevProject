@@ -2,13 +2,23 @@
 #include <iostream>
 using namespace std;
 
+Player::Player(const string& name) : name(name), shipGrid(new Grid(false)), attackGrid(new Grid(true)) {}
+
+void Player::setOpponent(Player* opponent) {
+	this->opponent = opponent;
+}
 
 vector<int> Player::toIntCoord(string coord) {
 	vector<int> IntCoord;
 	int x = static_cast<int>(coord.at(0)) - 65; //Le code ASCII du A est 65, celui de B est 66, etc.
-	int y = coord.at(1)-1;
+	cout << coord.at(0) << endl;
+	cout << coord.at(1) << endl;
+	int y = (int)(coord.at(1)) - 49; //Le code ASCII du 1 est 49, celui de 2 est 50, etc.
+	cout << x << endl;
+	cout << y << endl;
 	IntCoord.push_back(x);
 	IntCoord.push_back(y);
+	return IntCoord;
 }
 
 void Player::initShips() {
@@ -46,7 +56,7 @@ void Player::initShips() {
 				this->shipGrid.display();
 
 				cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
-				string coord{};
+				string coord;
 				cin >> coord;
 				vector<int> IntCoord = toIntCoord(coord);
 				int x = IntCoord.at(0);
@@ -67,7 +77,7 @@ void Player::initShips() {
 	}
 }
 
-Player* Player::playTurn(const char& row = '_', const char& col = '_') {
+Player* Player::playTurn(const char& row, const char& col) {
 	//Asking confirmation from the player to start his turn
 	cout << "It's " << this->name << "'s turn. Press Enter to start your turn." << endl;
 	cin;

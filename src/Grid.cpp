@@ -16,7 +16,6 @@ Grid::Grid(const bool& hidden) : hidden(hidden) {
 void Grid::display() const {
 	cout << "   1 2 3 4 5 6 7 8 9 10" << endl;
 	vector<char> letters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
-	//for (auto& row : this->cells) {
 	for (int i = 0; i < cells.size(); i++) {
 		cout << letters[i];
 		cout << "| ";
@@ -43,22 +42,22 @@ void Grid::display() const {
 			}
 			else {
 				if (cell->getOccupant() == nullptr) { //Case sans bateau
-					if (cell->getState() == 'M') { //Attaqu�e mais rat�e
+					if (cell->getState() == 'M') { //Attaquee mais ratee
 						cout << 'O ';
 					}
-					else { //Pas attaqu�e
+					else { //Pas attaquee
 						cout << "~ ";
 					}
 				}
 				else { //Case avec bateau
 					switch (cell->getState()) {
-					case 'T': //Attaqu�e et touch�e
+					case 'T': //Attaquee et touchee
 						cout << 'T ';
 						break;
 					case 'X' :
 						cout << 'X ';
 						break;
-					default : //Pas attaqu�e
+					default : //Pas attaquee
 						cout << 'B ';
 						break;
 					}
@@ -70,7 +69,8 @@ void Grid::display() const {
 }
 
 void Grid::attack(const int x, const int y) {
-	/* When an adversary attacks this grid. */
+	//This method retrieves the attacked cell and changes its state
+	//If a ship is hit, it calls the isAlive() method of the hit ship
 	Cell* targetCell = this->cells[x][y];
 	if(targetCell->getOccupant()){
 		targetCell->setState(targetCell->touchedHitState);

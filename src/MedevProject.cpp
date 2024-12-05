@@ -7,7 +7,16 @@ using namespace std;
 int main()
 {
 	cout << "Hello CMake." << endl;
-	Grid* grid = new Grid(true);
-	grid->display();
+
+	Player* player1 = new Player(opponent=player2);
+	Player* player2 = new Player(opponent=player1);
+
+	player1->initShips();
+	player2->initShips();
+
+	player1.playTurn();
+
+	delete player1;
+	delete player2;
 	return 0;
 }

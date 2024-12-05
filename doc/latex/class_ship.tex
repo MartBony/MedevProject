@@ -1,0 +1,84 @@
+\doxysection{Ship Class Reference}
+\hypertarget{class_ship}{}\label{class_ship}\index{Ship@{Ship}}
+
+
+Class representing a ship.  
+
+
+
+
+{\ttfamily \#include $<$Ship.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ship_a78f643a4bae413f2877d9a31ea0fdb2c}{Ship}} (const vector$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} $>$ \&position, const string \&type)
+\item 
+vector$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_ship_ae1d141450f2d789403fab4760cc86583}{get\+Position}} () const
+\item 
+void \mbox{\hyperlink{class_ship_a6274e21e43befa3a412a573907024d90}{set\+Position}} (const vector$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} $>$ \&position)
+\item 
+string \mbox{\hyperlink{class_ship_a4c423ebfe8f27a78d8d71afa0094b29e}{get\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_ship_a0ff2cea7096ffafc1a102b1b2304bbda}{set\+Type}} (const string \&type)
+\item 
+bool \mbox{\hyperlink{class_ship_a82c8b196cb492da2ea377dc9188a426f}{is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether the ship still floats, ie whether it occupies at least one unattacked cell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a ship. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ship_a78f643a4bae413f2877d9a31ea0fdb2c}\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Ship()}{Ship()}}
+{\footnotesize\ttfamily \label{class_ship_a78f643a4bae413f2877d9a31ea0fdb2c} 
+Ship\+::\+Ship (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} $>$ \&}]{position}{, }\item[{const string \&}]{type}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ship_ae1d141450f2d789403fab4760cc86583}\index{Ship@{Ship}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily \label{class_ship_ae1d141450f2d789403fab4760cc86583} 
+vector$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} $>$ Ship\+::get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_ship_a4c423ebfe8f27a78d8d71afa0094b29e}\index{Ship@{Ship}!getType@{getType}}
+\index{getType@{getType}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_ship_a4c423ebfe8f27a78d8d71afa0094b29e} 
+string Ship\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_ship_a82c8b196cb492da2ea377dc9188a426f}\index{Ship@{Ship}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily \label{class_ship_a82c8b196cb492da2ea377dc9188a426f} 
+bool Ship\+::is\+Alive (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns whether the ship still floats, ie whether it occupies at least one unattacked cell. 
+
+\begin{DoxyReturn}{Returns}
+State of the ship. 
+\end{DoxyReturn}
+\Hypertarget{class_ship_a6274e21e43befa3a412a573907024d90}\index{Ship@{Ship}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{class_ship_a6274e21e43befa3a412a573907024d90} 
+void Ship\+::set\+Position (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*} $>$ \&}]{position}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_ship_a0ff2cea7096ffafc1a102b1b2304bbda}\index{Ship@{Ship}!setType@{setType}}
+\index{setType@{setType}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily \label{class_ship_a0ff2cea7096ffafc1a102b1b2304bbda} 
+void Ship\+::set\+Type (\begin{DoxyParamCaption}\item[{const string \&}]{type}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_ship_8h}{Ship.\+h}}\item 
+src/\mbox{\hyperlink{_ship_8cpp}{Ship.\+cpp}}\end{DoxyCompactItemize}

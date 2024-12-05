@@ -1,0 +1,91 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+CLasse représentant un joueur dans le jeu.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_player_a4a2bde6695eaf9e237786b0c46f913b6}{init\+Ships}} ()
+\begin{DoxyCompactList}\small\item\em Asks the user to initialise his own grid with a range of boat types. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a55154957c1ae80d75681f83b8cf9ee80}{has\+Lost}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether the user lost, ie whether all of his boats sank. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_player_ab17c640ec60684793774f90e3c8eb26e}{play\+Turn}} (const char \&row=\textquotesingle{}\+\_\+\textquotesingle{}, const char \&col=\textquotesingle{}\+\_\+\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Plays the game, starting on this player\textquotesingle{}s side, and then recursively finishing the game by switching to the opponent, until the game ends. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_player_a502b04f920610c0e574f2731a58681b4}{Grid}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+CLasse représentant un joueur dans le jeu. 
+
+Cette classe permet d\textquotesingle{}initier un joueur et ses grilles, puis de jouer à travers le terminal. Elle ne peut pas exister seule et nécessite un autre joueur omme adversaire. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a55154957c1ae80d75681f83b8cf9ee80}\index{Player@{Player}!hasLost@{hasLost}}
+\index{hasLost@{hasLost}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{hasLost()}{hasLost()}}
+{\footnotesize\ttfamily \label{class_player_a55154957c1ae80d75681f83b8cf9ee80} 
+bool Player\+::has\+Lost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns whether the user lost, ie whether all of his boats sank. 
+
+\begin{DoxyReturn}{Returns}
+Boolan representing whether the user lost. 
+\end{DoxyReturn}
+\Hypertarget{class_player_a4a2bde6695eaf9e237786b0c46f913b6}\index{Player@{Player}!initShips@{initShips}}
+\index{initShips@{initShips}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{initShips()}{initShips()}}
+{\footnotesize\ttfamily \label{class_player_a4a2bde6695eaf9e237786b0c46f913b6} 
+void Player\+::init\+Ships (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Asks the user to initialise his own grid with a range of boat types. 
+
+\Hypertarget{class_player_ab17c640ec60684793774f90e3c8eb26e}\index{Player@{Player}!playTurn@{playTurn}}
+\index{playTurn@{playTurn}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{playTurn()}{playTurn()}}
+{\footnotesize\ttfamily \label{class_player_ab17c640ec60684793774f90e3c8eb26e} 
+\mbox{\hyperlink{class_player}{Player}} \texorpdfstring{$\ast$}{*} Player\+::play\+Turn (\begin{DoxyParamCaption}\item[{const char \&}]{row}{ = {\ttfamily \textquotesingle{}\+\_\+\textquotesingle{}}, }\item[{const char \&}]{col}{ = {\ttfamily \textquotesingle{}\+\_\+\textquotesingle{}}}\end{DoxyParamCaption})}
+
+
+
+Plays the game, starting on this player\textquotesingle{}s side, and then recursively finishing the game by switching to the opponent, until the game ends. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & Row of the previous attack, only used to inform the user of the opponent\textquotesingle{}s move. \\
+\hline
+{\em col} & Col of the previous attack in a similar fashion to row parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the winning player. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_player_a502b04f920610c0e574f2731a58681b4}\index{Player@{Player}!Grid@{Grid}}
+\index{Grid@{Grid}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Grid}{Grid}}
+{\footnotesize\ttfamily \label{class_player_a502b04f920610c0e574f2731a58681b4} 
+friend class \mbox{\hyperlink{class_grid}{Grid}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_player_8h}{Player.\+h}}\item 
+src/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

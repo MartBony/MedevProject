@@ -5,15 +5,7 @@ project ( MedevProject )
 file(GLOB_RECURSE
 	SRCS
 	src/*
-)
-
-# set(SRCS
-#	src/MedevProject.cpp
-#	src/Cell.cpp
-#	src/Grid.cpp
-#	src/Ship.cpp
-#)
-	
+)	
 
 add_executable( MedevProject ${SRCS})
 

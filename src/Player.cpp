@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 
-<<<<<<< HEAD
 
 Player::vector<int> toIntCoord(string coord) {
 	vector<int> IntCoord;
@@ -65,7 +64,6 @@ void Player::initShips() {
 			}
 		}
 	}
-=======
 using namespace std;
 
 Player* Player::playTurn(const char& row = '_', const char& col = '_') {
@@ -111,4 +109,4 @@ Player* Player::playTurn(const char& row = '_', const char& col = '_') {
 		return this;
 	}
 }
->>>>>>> 19a0e2df728704ecb089925052921f012ccfc7a0
+

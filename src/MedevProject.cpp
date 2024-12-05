@@ -14,7 +14,9 @@ int main()
 	player1->initShips();
 	player2->initShips();
 
-	player1.playTurn();
+	Player* winner = player1.playTurn();
+
+
 
 	delete player1;
 	delete player2;

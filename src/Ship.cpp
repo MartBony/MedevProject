@@ -16,7 +16,12 @@ void Ship::setPosition(const vector<Cell*>& position) {
 string Ship::getType() const { return this->type; };
 void Ship::setType(const string& type) { this->type = type; };
 
+bool Ship::getAlive() const {
+    return this->alive;
+}
+
 bool Ship::isAlive(){
+    //Tests if a ship is alive after beeing hit, changes the state of all its cells if it's not alive anymore. 
     if(this->alive){
         for(Cell* cell : this->position){
             if(cell->getState() == cell->notHitState) return true;

@@ -25,6 +25,9 @@ class Ship{
         string getType() const;
         void setType(const string &type);
 
+        bool getAlive() const;
+
+
         bool isAlive();
 
 };

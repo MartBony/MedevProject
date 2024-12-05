@@ -48,6 +48,7 @@ public:
 	 * @brief Asks the user to initialise his own grid with a range of boat types.
 	 */
 	void initShips();
+	vector<int> toIntCoord(string coord);
 	
 	/**
 	 * @brief Returns whether the user lost, ie whether all of his boats sank.

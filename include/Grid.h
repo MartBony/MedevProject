@@ -10,6 +10,7 @@ using namespace std;
  * @brief Class representing a grid that contains ships, placed on cells.
  */
 class Grid {
+	friend class Player;
 private:
 	vector<vector<Cell*>> cells;
 	/**

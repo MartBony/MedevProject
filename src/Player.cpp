@@ -11,11 +11,6 @@ vector<int> Player::toIntCoord(string coord) {
 	IntCoord.push_back(y);
 }
 
-//bool isOccupied(int x, int y, Grid G){
-	//Cell cell = *(G.cells).at(x).at(y);
-
-
-
 void Player::initShips() {
 
 	cout << "Place your ships by entering the coordinates occupied by each one : " << endl;

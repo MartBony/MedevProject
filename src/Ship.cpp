@@ -16,6 +16,10 @@ void Ship::setPosition(const vector<Cell*>& position) {
 string Ship::getType() const { return this->type; };
 void Ship::setType(const string& type) { this->type = type; };
 
+bool Ship::getAlive() const {
+    return this->alive;
+}
+
 bool Ship::isAlive(){
     if(this->alive){
         for(Cell* cell : this->position){

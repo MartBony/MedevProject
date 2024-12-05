@@ -43,9 +43,9 @@ void Player::initShips() {
 
 			for (size_t cellIndex = 0; cellIndex < shipLength; cellIndex++) {
 
-				this->shipGrid.display()
+				this->shipGrid.display();
 
-					cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
+				cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
 				string coord{};
 				cin >> coord;
 				vector<int> IntCoord = toIntCoord(coord);
@@ -53,14 +53,14 @@ void Player::initShips() {
 				int y = IntCoord.at(1);
 
 
-				if (this->shipGrid.at(x).at(y).getOccupant() == nullptr) {
-					position.push_back(shipGrid.at(x).at(y));
+				if (this->shipGrid.cells[x][y]->getOccupant() == nullptr) {
+					position.push_back(shipGrid.cells[x][y]);
 				}
 			}
 
 			Ship newShip(position, shipName);
 			for (Cell* ptrC : position) {
-				ptrC->setOccupant(newShip);
+				ptrC->setOccupant(&newShip);
 			}
 			this->shipList.push_back(&newShip);
 		}

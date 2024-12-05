@@ -26,6 +26,7 @@ private:
 
 public:
 	void initShips();
+	vector<int> toIntCoord(string coord);
 	bool hasLost();
 	Player* playTurn(const char& row = '_', const char& col = '_');
 };

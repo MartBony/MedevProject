@@ -3,10 +3,10 @@
 using namespace std;
 
 
-Player::vector<int> toIntCoord(string coord) {
+vector<int> Player::toIntCoord(string coord) {
 	vector<int> IntCoord;
 	int x = static_cast<int>(coord.at(0)) - 65; //Le code ASCII du A est 65, celui de B est 66, etc.
-	int y = coord.at(1);
+	int y = coord.at(1)-1;
 	IntCoord.push_back(x);
 	IntCoord.push_back(y);
 }
@@ -48,7 +48,7 @@ void Player::initShips() {
 
 			for (size_t cellIndex = 0; cellIndex < shipLength; cellIndex++) {
 
-				Grid.display()
+				this->shipGrid.display()
 
 				cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
 				string coord{};
@@ -56,12 +56,18 @@ void Player::initShips() {
 				vector<int> IntCoord = toIntCoord(coord);
 				int x = IntCoord.at(0);
 				int y = IntCoord.at(1);
-				if (!isOccupied(x, y)) {
-					Cell newCell = Cell(x, y);
-					position.push_back(&newCell);
+
+
+				if (this->shipGrid.at(x).at(y).getOccupant() == nullptr) {
+					position.push_back(shipGrid.at(x).at(y));
 				}
-				
 			}
+
+			Ship newShip(position, shipName);
+			for (Cell* ptrC : position) {
+				ptrC->setOccupant(newShip);
+			}
+			this->shipList.push_back(&newShip);
 		}
 	}
 using namespace std;
@@ -110,3 +116,11 @@ Player* Player::playTurn(const char& row = '_', const char& col = '_') {
 	}
 }
 
+bool Player::hasLost() {
+	for (auto& ship : shipList) {
+		if (ship->getAlive()) {
+			return false; 
+		}
+	}
+	return true; 
+}

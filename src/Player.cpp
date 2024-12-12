@@ -11,11 +11,7 @@ void Player::setOpponent(Player* opponent) {
 vector<int> Player::toIntCoord(string coord) {
 	vector<int> IntCoord;
 	int x = static_cast<int>(coord.at(0)) - 65; //Le code ASCII du A est 65, celui de B est 66, etc.
-	cout << coord.at(0) << endl;
-	cout << coord.at(1) << endl;
 	int y = (int)(coord.at(1)) - 49; //Le code ASCII du 1 est 49, celui de 2 est 50, etc.
-	cout << x << endl;
-	cout << y << endl;
 	IntCoord.push_back(x);
 	IntCoord.push_back(y);
 	return IntCoord;

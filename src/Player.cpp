@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+
 Player::Player(const string& name) : name(name), shipGrid(new Grid(false)), attackGrid(new Grid(true)) {}
 
 void Player::setOpponent(Player* opponent) {
@@ -11,10 +12,14 @@ void Player::setOpponent(Player* opponent) {
 vector<int> Player::toIntCoord(string coord) {
 	vector<int> IntCoord;
 	int x = static_cast<int>(coord.at(0)) - 65; //Le code ASCII du A est 65, celui de B est 66, etc.
-	int y = (int)(coord.at(1)) - 49; //Le code ASCII du 1 est 49, celui de 2 est 50, etc.
+	int y = coord.size() == 2 ? (int)(coord.at(1)) - 49 : 9; // If the user typed 10, the string will be of size 3 > 2
 	IntCoord.push_back(x);
 	IntCoord.push_back(y);
 	return IntCoord;
+}
+
+bool inBounds(const int& testInt){
+	return testInt >= 0 && testInt <= 9;
 }
 
 void Player::initShips() {
@@ -51,12 +56,24 @@ void Player::initShips() {
 
 				this->shipGrid.display();
 
-				cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
 				string coord;
-				cin >> coord;
-				vector<int> IntCoord = toIntCoord(coord);
-				int x = IntCoord.at(0);
-				int y = IntCoord.at(1);
+				int x = -1;
+				int y = -1;
+				while(true){
+					coord = "";
+					while(true){
+						cout << "Enter coordinates for the " << shipName << " number " << shipIndex << " (" << shipLength - cellIndex << " cell(s) remaining) : ";
+						cin >> coord;
+						if(coord.size() >= 2) break;
+						cout << "The input is too short" << endl;
+					}
+					vector<int> IntCoord = toIntCoord(coord);
+					x = IntCoord.at(0);
+					y = IntCoord.at(1);
+
+					if(inBounds(x) && inBounds(y)) break;
+					cout << "The input is uncorrectly formatted" << endl;
+				}
 
 
 				if (this->shipGrid.cells[x][y]->getOccupant() == nullptr) {

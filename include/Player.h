@@ -21,9 +21,6 @@ using namespace std;
  */
 class Player {
 	friend class Grid;
-	Grid shipGrid;
-	Grid attackGrid;
-	vector<Ship*> shipList;
 
 private:
 	string name;
@@ -47,8 +44,13 @@ public:
 	/**
 	 * @brief Asks the user to initialise his own grid with a range of boat types.
 	 */
+
+	void setOpponent(Player* opponent);
+
 	void initShips();
 	vector<int> toIntCoord(string coord);
+
+	Player(const string& name);
 	
 	/**
 	 * @brief Returns whether the user lost, ie whether all of his boats sank.

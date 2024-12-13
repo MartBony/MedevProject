@@ -1,0 +1,64 @@
+\doxysection{Grid Class Reference}
+\hypertarget{class_grid}{}\label{class_grid}\index{Grid@{Grid}}
+
+
+Class representing a grid that contains ships, placed on cells.  
+
+
+
+
+{\ttfamily \#include $<$Grid.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grid_ac7261223486680b9b907788f748fbdc8}{Grid}} (const bool \&hidden)
+\item 
+void \mbox{\hyperlink{class_grid_a031f4305267873f9a15884f61fb569fe}{display}} () const
+\item 
+void \mbox{\hyperlink{class_grid_aa4d3ea00acf59966674de93b5c1b5a8e}{attack}} (const int x, const int y)
+\begin{DoxyCompactList}\small\item\em Allows you to flip the state of a \doxylink{class_cell}{Cell} at gicen coordinates to a hit ot miss. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a grid that contains ships, placed on cells. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_grid_ac7261223486680b9b907788f748fbdc8}\index{Grid@{Grid}!Grid@{Grid}}
+\index{Grid@{Grid}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{Grid()}{Grid()}}
+{\footnotesize\ttfamily \label{class_grid_ac7261223486680b9b907788f748fbdc8} 
+Grid\+::\+Grid (\begin{DoxyParamCaption}\item[{const bool \&}]{hidden}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_grid_aa4d3ea00acf59966674de93b5c1b5a8e}\index{Grid@{Grid}!attack@{attack}}
+\index{attack@{attack}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily \label{class_grid_aa4d3ea00acf59966674de93b5c1b5a8e} 
+void Grid\+::attack (\begin{DoxyParamCaption}\item[{const int}]{x}{, }\item[{const int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Allows you to flip the state of a \doxylink{class_cell}{Cell} at gicen coordinates to a hit ot miss. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Row of the targeted cell \\
+\hline
+{\em y} & Column of teh targeted cell \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_grid_a031f4305267873f9a15884f61fb569fe}\index{Grid@{Grid}!display@{display}}
+\index{display@{display}!Grid@{Grid}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{class_grid_a031f4305267873f9a15884f61fb569fe} 
+void Grid\+::display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_grid_8h}{Grid.\+h}}\item 
+src/\mbox{\hyperlink{_grid_8cpp}{Grid.\+cpp}}\end{DoxyCompactItemize}

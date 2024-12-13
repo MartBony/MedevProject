@@ -38,7 +38,7 @@ class Ship{
 
         /**
          * @brief Returns whether the ship still floats, ie whether it occupies at least one unattacked cell.
-         * @returns State of the ship.
+         * @return State of the ship.
          */
         bool isAlive();
 

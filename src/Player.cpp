@@ -3,7 +3,7 @@
 using namespace std;
 
 
-Player::Player(const string& name) : name(name), shipGrid(new Grid(false)), attackGrid(new Grid(true)) {}
+Player::Player(const string& name) : name(name), shipGrid(Grid(false)), attackGrid(Grid(true)) {}
 
 string Player::getName() const {
 	return this->name;

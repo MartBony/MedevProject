@@ -52,6 +52,7 @@ public:
 
 	Player(const string& name);
 	
+	string getName() const;
 	/**
 	 * @brief Returns whether the user lost, ie whether all of his boats sank.
 	 * @return Boolan representing whether the user lost.

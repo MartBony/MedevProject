@@ -19,7 +19,7 @@ int main()
 
 	Player* winner = player1->playTurn();
 
-	//cout << "Player " << winner->name << " has won!" << endl;
+	cout << "Player " << winner->getName() << " has won!" << endl;
 
 	delete player1;
 	delete player2;

@@ -5,6 +5,9 @@ using namespace std;
 
 Player::Player(const string& name) : name(name), shipGrid(new Grid(false)), attackGrid(new Grid(true)) {}
 
+string Player::getName() const {
+	return this->name;
+}
 void Player::setOpponent(Player* opponent) {
 	this->opponent = opponent;
 }
@@ -111,8 +114,9 @@ void Player::initShips() {
 
 Player* Player::playTurn(const char& row, const char& col) {
 	//Asking confirmation from the player to start his turn
-	cout << "It's " << this->name << "'s turn. Press Enter to start your turn." << endl;
-	cin;
+	cout << "It's " << this->name << "'s turn. Type something and press enter to start your turn" << endl;
+	string key;
+	cin >> key;
 
 	//Display the player's grid and the opponent's last attack
 	cout << "This is your grid." << endl;

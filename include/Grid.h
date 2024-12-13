@@ -23,6 +23,8 @@ private:
 public:
 	Grid(const bool& hidden);
 
+	vector<vector<Cell*>> getCells() const;
+
 	void display() const;
 	/**
 	 * @brief Allows you to flip the state of a Cell at gicen coordinates to a hit ot miss.

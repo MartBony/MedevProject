@@ -13,6 +13,10 @@ Grid::Grid(const bool& hidden) : hidden(hidden) {
 	}
 }
 
+vector<vector<Cell*>> Grid::getCells() const {
+	return this->cells;
+}
+
 void Grid::display() const {
 	cout << "   1 2 3 4 5 6 7 8 9 10" << endl;
 	vector<char> letters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };

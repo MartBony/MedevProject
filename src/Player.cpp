@@ -82,10 +82,28 @@ void Player::initShips() {
 			}
 
 			Ship newShip(position, shipName);
-			for (Cell* ptrC : position) {
-				ptrC->setOccupant(&newShip);
-			}
 			this->shipList.push_back(&newShip);
+			cout << "Ship added" << endl;
+			//Add ship to shipGrid
+			for (vector<Cell*> vect : this->shipGrid.getCells()) {
+				for (Cell* gridCell : vect) {
+					for (Cell* ptrC : position) {
+						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
+							gridCell->setOccupant(&newShip);
+						}
+					}
+				}
+			}
+			//Add ship to attackGrid
+			for (vector<Cell*> vect : this->attackGrid.getCells()) {
+				for (Cell* gridCell : vect) {
+					for (Cell* ptrC : position) {
+						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
+							gridCell->setOccupant(&newShip);
+						}
+					}
+				}
+			}
 		}
 	}
 }

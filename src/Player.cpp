@@ -81,15 +81,16 @@ void Player::initShips() {
 				}
 			}
 
-			Ship newShip(position, shipName);
-			this->shipList.push_back(&newShip);
+			Ship* newShip = new Ship(position, shipName);
+			this->shipList.push_back(newShip);
 			cout << "Ship added" << endl;
 			//Add ship to shipGrid
 			for (vector<Cell*> vect : this->shipGrid.getCells()) {
 				for (Cell* gridCell : vect) {
 					for (Cell* ptrC : position) {
 						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
-							gridCell->setOccupant(&newShip);
+							gridCell->setOccupant(newShip);
+							cout << "occupant changed" << endl;
 						}
 					}
 				}
@@ -99,7 +100,7 @@ void Player::initShips() {
 				for (Cell* gridCell : vect) {
 					for (Cell* ptrC : position) {
 						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
-							gridCell->setOccupant(&newShip);
+							gridCell->setOccupant(newShip);
 						}
 					}
 				}
@@ -116,7 +117,7 @@ Player* Player::playTurn(const char& row, const char& col) {
 	//Display the player's grid and the opponent's last attack
 	cout << "This is your grid." << endl;
 	if (row != '_') {
-		cout << "Your opponent attacked " << row << col << " on his last turn" << endl;
+		cout << "Your opponent attacked " << row << (int)col << " on his last turn" << endl;
 	}
 	this->shipGrid.display();
 

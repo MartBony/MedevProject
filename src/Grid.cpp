@@ -31,23 +31,23 @@ void Grid::display() const {
 					cout << "~ ";
 					break;
 				case 'M':
-					cout << 'O ';
+					cout << "O ";
 					break;
 				case 'T':
-					cout << 'T ';
+					cout << "T ";
 					break;
 				case 'X':
-					cout << 'X ';
+					cout << "X ";
 					break;
 				default:
-					cout << '? ';
+					cout << " ? ";
 					break;
 				}
 			}
 			else {
 				if (cell->getOccupant() == nullptr) { //Case sans bateau
 					if (cell->getState() == 'M') { //Attaquee mais ratee
-						cout << 'O ';
+						cout << "O ";
 					}
 					else { //Pas attaquee
 						cout << "~ ";
@@ -56,13 +56,13 @@ void Grid::display() const {
 				else { //Case avec bateau
 					switch (cell->getState()) {
 					case 'T': //Attaquee et touchee
-						cout << 'T ';
+						cout << "T ";
 						break;
 					case 'X' :
-						cout << 'X ';
+						cout << "X ";
 						break;
 					default : //Pas attaquee
-						cout << 'B ';
+						cout << "B ";
 						break;
 					}
 				}

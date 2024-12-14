@@ -25,6 +25,45 @@ bool inBounds(const int& testInt){
 	return testInt >= 0 && testInt <= 9;
 }
 
+bool Player::isAdjacentAndAligned(const int& x, const int& y, const vector<Cell*> shipCells) const {
+	if (shipCells.empty()) {
+		return true; // First cell can be placed anywhere
+	}
+
+	// Check if all existing cells are in a straight line
+	bool isHorizontal = true;
+	bool isVertical = true;
+	int refX = shipCells[0]->getX();
+	int refY = shipCells[0]->getY();
+
+	for (const Cell* cell : shipCells) {
+		if (cell->getX() != refX) {
+			isVertical = false;
+		}
+		if (cell->getY() != refY) {
+			isHorizontal = false;
+		}
+	}
+
+	// Ensure new cell aligns with the current line
+	if (!((isHorizontal && y == refY) || (isVertical && x == refX))) {
+		return false;
+	}
+
+	// Check adjacency to any existing cell
+	for (const Cell* cell : shipCells) {
+		int cellX = cell->getX();
+		int cellY = cell->getY();
+
+		if ((std::abs(cellX - x) == 1 && cellY == y) ||
+			(std::abs(cellY - y) == 1 && cellX == x)) {
+			return true;
+		}
+	}
+
+	return false; // No adjacent and aligned cell found
+}
+
 void Player::initShips() {
 
 	cout << "Place your ships by entering the coordinates occupied by each one : " << endl;
@@ -74,8 +113,8 @@ void Player::initShips() {
 					x = IntCoord.at(0);
 					y = IntCoord.at(1);
 
-					if(inBounds(x) && inBounds(y)) break;
-					cout << "The input is uncorrectly formatted" << endl;
+					if(inBounds(x) && inBounds(y) && isAdjacentAndAligned(x, y, position)) break;
+					cout << "The input is uncorrectly formatted or not valid" << endl;
 				}
 
 
@@ -93,7 +132,6 @@ void Player::initShips() {
 					for (Cell* ptrC : position) {
 						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
 							gridCell->setOccupant(newShip);
-							cout << "occupant changed" << endl;
 						}
 					}
 				}

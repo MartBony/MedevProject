@@ -18,6 +18,9 @@ class Ship{
      * @brief The ship's position is the list (vector) of cells it occupies.
      */
     vector<Cell*> position;
+    /**
+    * @brief The type of ship (Cruiser, fishing boat etc)
+    */
     string type;
     /**
      * @brief Internal variable meant to decrease the number of operations of the isAlive function.
@@ -25,7 +28,7 @@ class Ship{
      */
     bool alive = true;
     public:
-        
+
         Ship(const vector<Cell*>& position, const string& type);
         
 

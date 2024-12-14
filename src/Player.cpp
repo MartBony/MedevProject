@@ -125,7 +125,7 @@ void Player::initShips() {
 
 			Ship* newShip = new Ship(position, shipName);
 			this->shipList.push_back(newShip);
-			cout << "Ship added" << endl;
+			cout << "Ship added \n" << endl;
 			//Add ship to shipGrid
 			for (vector<Cell*> vect : this->shipGrid.getCells()) {
 				for (Cell* gridCell : vect) {
@@ -152,7 +152,7 @@ void Player::initShips() {
 
 Player* Player::playTurn(const char& row, const char& col) {
 	//Asking confirmation from the player to start his turn
-	cout << "It's " << this->name << "'s turn. Type something and press enter to start your turn" << endl;
+	cout << "\nIt's " << this->name << "'s turn. Type something and press enter to start your turn" << endl;
 	string key;
 	cin >> key;
 

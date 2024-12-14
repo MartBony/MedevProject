@@ -11,4 +11,4 @@
 * **Théo** : UML Diagram, Cell class, Grid class and display
 * **Elias** : Player class (.h and initShips method), Ship.cpp
 ## Issues
-Single ships can be placed on a series of non adjascent cells.
+All our main issues have been resolved.

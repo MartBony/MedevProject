@@ -47,7 +47,16 @@ public:
 
 	void setOpponent(Player* opponent);
 
+	/**
+	 * @brief Will display the player's grid and ask him to place his ships until all of them are placed.
+	 */
 	void initShips();
+
+	/**
+	 * @brief Turns the string inputted by the player to x and y coordinates.
+	 * @param coord The string inputted by the player (for example: "C3")
+	 * @return the x and y coordinate (integers) placed in a vector (of size 2)
+	 */
 	vector<int> toIntCoord(string coord);
 
 	/**
@@ -61,6 +70,7 @@ public:
 	Player(const string& name);
 	
 	string getName() const;
+
 	/**
 	 * @brief Returns whether the user lost, ie whether all of his boats sank.
 	 * @return Boolan representing whether the user lost.

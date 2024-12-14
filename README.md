@@ -11,3 +11,4 @@
 * **Théo** : UML Diagram, Cell class, Grid class and display
 * **Elias** : 
 ## Issues
+All our main issues have been resolved.

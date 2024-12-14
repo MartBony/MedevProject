@@ -9,6 +9,6 @@
 * **Martin** : Project and github setup, Ship.h, documentation, Main game loop (conceptualisation)
 * **Yvan** : UML Diagram, Cell class, Grid class and display, Player class
 * **Théo** : UML Diagram, Cell class, Grid class and display
-* **Elias** : Player class (.h and initShips method), Ship.cpp
+* **Elias** : UML diagram, Player class (.h and initShips method), Ship.cpp
 ## Issues
 All our main issues have been resolved.

@@ -11,4 +11,3 @@
 * **Théo** : UML Diagram, Cell class, Grid class and display
 * **Elias** : 
 ## Issues
-Single ships can be placed on a series of non adjascent cells.

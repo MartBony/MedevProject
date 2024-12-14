@@ -171,26 +171,26 @@ void Player::initShips() {
 				switch (orientation) {
 				case 'u':
 				case'U':
-					for (size_t i = 0; i < shipLength - 1; i++) {
-						position.push_back(shipGrid.cells[x][y - i]);
+					for (size_t i = 0; i < shipLength; i++) {
+						position.push_back(shipGrid.cells[x - i][y]);
 					}
 					break;
 				case 'd':
 				case'D':
-					for (size_t i = 0; i < shipLength - 1; i++) {
-						position.push_back(shipGrid.cells[x][y + i]);
+					for (size_t i = 0; i < shipLength; i++) {
+						position.push_back(shipGrid.cells[x + i][y]);
 					}
 					break;
 				case 'r':
 				case'R':
-					for (size_t i = 0; i < shipLength - 1; i++) {
-						position.push_back(shipGrid.cells[x + i][y]);
+					for (size_t i = 0; i < shipLength; i++) {
+						position.push_back(shipGrid.cells[x][y + i]);
 					}
 					break;
 				case 'l':
 				case'L':
-					for (size_t i = 0; i < shipLength - 1; i++) {
-						position.push_back(shipGrid.cells[x - i][y]);
+					for (size_t i = 0; i < shipLength; i++) {
+						position.push_back(shipGrid.cells[x][y - i]);
 					}
 					break;
 				default:
@@ -200,11 +200,33 @@ void Player::initShips() {
 
 			} while (wrongOrientation);
 
-			Ship newShip(position, shipName);
+			Ship* newShip = new Ship(position, shipName);
 			for (Cell* ptrC : position) {
-				ptrC->setOccupant(&newShip);
+				ptrC->setOccupant(newShip);
 			}
-			this->shipList.push_back(&newShip);
+
+			this->shipList.push_back(newShip);
+			cout << "Ship added \n" << endl;
+			//Add ship to shipGrid
+			for (vector<Cell*> vect : this->shipGrid.getCells()) {
+				for (Cell* gridCell : vect) {
+					for (Cell* ptrC : position) {
+						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
+							gridCell->setOccupant(newShip);
+						}
+					}
+				}
+			}
+			//Add ship to attackGrid
+			for (vector<Cell*> vect : this->attackGrid.getCells()) {
+				for (Cell* gridCell : vect) {
+					for (Cell* ptrC : position) {
+						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
+							gridCell->setOccupant(newShip);
+						}
+					}
+				}
+			}
 		}
 	}
 }

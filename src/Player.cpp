@@ -3,8 +3,11 @@
 using namespace std;
 
 
-Player::Player(const string& name) : name(name), shipGrid(new Grid(false)), attackGrid(new Grid(true)) {}
+Player::Player(const string& name) : name(name), shipGrid(Grid(false)), attackGrid(Grid(true)) {}
 
+string Player::getName() const {
+	return this->name;
+}
 void Player::setOpponent(Player* opponent) {
 	this->opponent = opponent;
 }
@@ -20,6 +23,45 @@ vector<int> Player::toIntCoord(string coord) {
 
 bool inBounds(const int& testInt){
 	return testInt >= 0 && testInt <= 9;
+}
+
+bool Player::isAdjacentAndAligned(const int& x, const int& y, const vector<Cell*> shipCells) const {
+	if (shipCells.empty()) {
+		return true; // First cell can be placed anywhere
+	}
+
+	// Check if all existing cells are in a straight line
+	bool isHorizontal = true;
+	bool isVertical = true;
+	int refX = shipCells[0]->getX();
+	int refY = shipCells[0]->getY();
+
+	for (const Cell* cell : shipCells) {
+		if (cell->getX() != refX) {
+			isVertical = false;
+		}
+		if (cell->getY() != refY) {
+			isHorizontal = false;
+		}
+	}
+
+	// Ensure new cell aligns with the current line
+	if (!((isHorizontal && y == refY) || (isVertical && x == refX))) {
+		return false;
+	}
+
+	// Check adjacency to any existing cell
+	for (const Cell* cell : shipCells) {
+		int cellX = cell->getX();
+		int cellY = cell->getY();
+
+		if ((std::abs(cellX - x) == 1 && cellY == y) ||
+			(std::abs(cellY - y) == 1 && cellX == x)) {
+			return true;
+		}
+	}
+
+	return false; // No adjacent and aligned cell found
 }
 
 void Player::initShips() {
@@ -188,8 +230,8 @@ void Player::initShips() {
 					x = IntCoord.at(0);
 					y = IntCoord.at(1);
 
-					if(inBounds(x) && inBounds(y)) break;
-					cout << "The input is uncorrectly formatted" << endl;
+					if(inBounds(x) && inBounds(y) && isAdjacentAndAligned(x, y, position)) break;
+					cout << "The input is uncorrectly formatted or not valid" << endl;
 				}
 
 
@@ -198,11 +240,29 @@ void Player::initShips() {
 				}
 			}
 
-			Ship newShip(position, shipName);
-			for (Cell* ptrC : position) {
-				ptrC->setOccupant(&newShip);
+			Ship* newShip = new Ship(position, shipName);
+			this->shipList.push_back(newShip);
+			cout << "Ship added \n" << endl;
+			//Add ship to shipGrid
+			for (vector<Cell*> vect : this->shipGrid.getCells()) {
+				for (Cell* gridCell : vect) {
+					for (Cell* ptrC : position) {
+						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
+							gridCell->setOccupant(newShip);
+						}
+					}
+				}
 			}
-			this->shipList.push_back(&newShip);
+			//Add ship to attackGrid
+			for (vector<Cell*> vect : this->attackGrid.getCells()) {
+				for (Cell* gridCell : vect) {
+					for (Cell* ptrC : position) {
+						if (ptrC->getX() == gridCell->getX() && ptrC->getY() == gridCell->getY()) {
+							gridCell->setOccupant(newShip);
+						}
+					}
+				}
+			}
 		}
 	}
 }
@@ -211,13 +271,14 @@ void Player::initShips() {
 
 Player* Player::playTurn(const char& row, const char& col) {
 	//Asking confirmation from the player to start his turn
-	cout << "It's " << this->name << "'s turn. Press Enter to start your turn." << endl;
-	cin;
+	cout << "\nIt's " << this->name << "'s turn. Type something and press enter to start your turn" << endl;
+	string key;
+	cin >> key;
 
 	//Display the player's grid and the opponent's last attack
 	cout << "This is your grid." << endl;
 	if (row != '_') {
-		cout << "Your opponent attacked " << row << col << " on his last turn" << endl;
+		cout << "Your opponent attacked " << row << (int)col << " on his last turn" << endl;
 	}
 	this->shipGrid.display();
 

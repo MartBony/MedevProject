@@ -7,8 +7,6 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello CMake." << endl;
-
 	Player* player1 = new Player("Theo");
 	Player* player2 = new Player("Yvan");
 	player1->setOpponent(player2);
@@ -19,7 +17,7 @@ int main()
 
 	Player* winner = player1->playTurn();
 
-	//cout << "Player " << winner->name << " has won!" << endl;
+	cout << "Player " << winner->getName() << " has won!" << endl;
 
 	delete player1;
 	delete player2;

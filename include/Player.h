@@ -50,6 +50,14 @@ public:
 	void initShips();
 	vector<int> toIntCoord(string coord);
 
+	/**
+	 * @brief Auxilary function that tests if a position is adjacent and aligned to the previous cells (for ship placement)
+	 * @param x X coordinate of the cell the player wants to input
+	 * @param y Y coordinate of the cell the player wants to input
+	 * @return True or False
+	 */
+	bool isAdjacentAndAligned(const int& x, const int& y, const vector<Cell*> shipCells) const;
+
 	Player(const string& name);
 	
 	string getName() const;
